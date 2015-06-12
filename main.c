@@ -8,13 +8,13 @@
 #define LED_DDR DDRC
 #define LED_PIN 0
 
-#if (NOUT>8)
-  #error NOUT should be < 8
+#if (NOUT > 8)
+	#error NOUT should be less or equal 8
 #endif
 
 struct stStep {
-  uint8_t out;
-  uint32_t duration;
+	uint8_t out;
+	uint32_t duration;
 };
 
 volatile uint8_t* out_ddr[NOUT] = {&DDRB, &DDRB};
@@ -40,7 +40,7 @@ ISR(TIMER2_OVF_vect)
 void main(void)
 {
 	int i, istep;
-	uint32_t tnext,_time,tled;
+	uint32_t tnext, _time, tled;
 
 	time = 0;
 	tnext = 0;
