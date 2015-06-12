@@ -2,7 +2,7 @@
 #include <avr/interrupt.h>
 
 #define NOUT 2
-#define NSTEPS 3
+#define NSTEPS 2
 
 #define LED_PORT PORTC
 #define LED_DDR DDRC
@@ -22,9 +22,8 @@ volatile uint8_t* out_port[NOUT] = {&PORTB, &PORTB};
 uint8_t out_pin[NOUT] = {1, 0};
 
 struct stStep TimTab[NSTEPS] = {
-	{0b01,	15*60l},
-	{0b10,	15*60l},
-	{0b0,	210*60l}
+	{0b0,	238	* 60l},
+	{0b11,	2	* 60l},
 };
 
 volatile uint32_t time = 0;
